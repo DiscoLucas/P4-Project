@@ -35,8 +35,8 @@
 *~
 
 # ignore SolidWorks temporary files
-~$*.SLDPRT
-~$*.SLDASM
+Hardware/~$*.SLDPRT
+Hardware/~$*.SLDASM
 
 # ignore OS X desktops
 .DS_Store
