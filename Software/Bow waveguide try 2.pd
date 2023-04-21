@@ -1,0 +1,15 @@
+#N canvas 421 170 450 300 12;
+#X obj 83 233 wg/string/bowed~;
+#X obj 84 282 dac~;
+#X obj 84 144 osc~ 440;
+#X obj 85 177 wg/bow/table~;
+#X obj 83 257 *~;
+#X obj 84 78 noise~;
+#X obj 85 107 *~;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
