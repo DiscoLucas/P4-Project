@@ -1,0 +1,94 @@
+#N canvas 1063 465 577 307 10;
+#X obj 263 143 switch~;
+#X obj 263 121 r \$1/on;
+#X obj 77 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 173 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 192 210 clear before save !;
+#X obj 31 144 r /amb/businit;
+#X obj 172 139 max 1;
+#X text 95 192 reconstruct;
+#X obj 172 117 r \$1/channels;
+#X text 170 98 dyn set channel count;
+#X obj 31 183 t b b;
+#N canvas 722 694 450 300 init 0;
+#X obj 231 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 103 85 list append \$1;
+#X obj 103 58 inlet;
+#X msg 103 107 \;;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X restore 31 261 pd init;
+#N canvas 1314 691 541 305 contruct-crosss 1;
+#X msg 160 90 clear;
+#X obj 81 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 37 15 inlet;
+#X obj 37 136 t f f b;
+#X obj 160 16 inlet;
+#X obj 37 40 i \$2;
+#X obj 37 66 t f b;
+#X obj 37 115 acre/count_until;
+#X obj 240 18 loadbang;
+#X obj 240 84 - 1;
+#X obj 240 62 max 1;
+#X obj 74 161 + 0;
+#X text 268 86 out offset;
+#X obj 105 12 inlet;
+#X obj 77 43 s \$1/channels;
+#X obj 240 40 i \$6;
+#X obj 37 264 s pd-\$0-dsp-cross;
+#X obj 160 114 s pd-\$0-dsp-cross;
+#X obj 37 182 pack 10 1;
+#X obj 37 203 list append \$1 \$2 \$3 \$4 \$5;
+#X obj 361 22 loadbang;
+#X obj 361 43 acre/arg_default lop~ \$7;
+#X obj 37 223 list append lop~;
+#X msg 37 244 obj 10 \$1 amb/bus/cross-filt~ \$3 \$5-\$2 \$6-\$2 \$7-\$2
+\$8;
+#X obj 37 160 * 30;
+#X connect 0 0 17 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 24 0;
+#X connect 3 1 11 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 5 0 14 0;
+#X connect 6 0 7 0;
+#X connect 6 1 0 0;
+#X connect 7 0 3 0;
+#X connect 8 0 15 0;
+#X connect 9 0 11 1;
+#X connect 10 0 9 0;
+#X connect 11 0 18 1;
+#X connect 13 0 5 1;
+#X connect 15 0 10 0;
+#X connect 18 0 19 0;
+#X connect 19 0 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 1;
+#X connect 22 0 23 0;
+#X connect 23 0 16 0;
+#X connect 24 0 18 0;
+#X restore 63 232 pd contruct-crosss;
+#N canvas 323 311 420 611 \$0-dsp-cross 0;
+#X restore 31 116 pd \$0-dsp-cross;
+#X text 34 44 eg.: 2 subchannels lop~: amb/bus/cross~ sub 4 SUB SUB-LOW
+SUB-HIGH, f 69;
+#X text 33 70 eg.: 4 subchannels lp4_butt~: amb/bus/cross~ sub 4 SUB
+SUB-LOW SUB-HIGH 0 lp4_butt~, f 91;
+#X text 36 7 amb/bus/cross~ <id> <channels> <IN-Bus> <Out-bus-low>
+<out-bus-high> [offset] [filter], f 68;
+#X text 349 121 \$1/freq ... crossover frequency;
+#X connect 1 0 0 0;
+#X connect 2 0 10 0;
+#X connect 3 0 12 2;
+#X connect 5 0 10 0;
+#X connect 6 0 12 1;
+#X connect 8 0 6 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;

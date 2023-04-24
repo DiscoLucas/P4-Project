@@ -1,0 +1,7 @@
+#N canvas 35 219 331 245 10;
+#X text 43 49 Storage for the master section;
+#X text 76 157 (c) GPL \, acre - winfried ritsch;
+#X obj 21 84 ds/register_map \$1 \$2/vol;
+#X obj 21 105 ds/register_map \$1 \$2/hp;
+#X obj 23 129 ds/register_map \$1 \$2/mute;
+#X text 27 25 mxr/out/sub_ds <domain> <outsub_id>;

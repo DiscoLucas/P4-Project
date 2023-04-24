@@ -1,0 +1,7 @@
+#N canvas 832 309 338 165 10;
+#X obj 70 64 inlet~;
+#X text 72 11 mxr/prvu/send <send name>;
+#X obj 71 90 mxr/prvu/send~ \$1;
+#X text 48 36 deprecated use new name mxr/prvu/send~;
+#X text 61 121 comment;
+#X connect 0 0 2 0;

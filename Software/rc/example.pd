@@ -1,0 +1,133 @@
+#N canvas 414 61 766 932 10;
+#X declare -path .. -lib zexy -path iemlib -lib iemlib;
+#X obj 22 166 nbx 5 14 -1e+37 1e+37 0 0 fadetime fadetime fadetime
+0 -8 0 10 -260097 -1 -1 0 256;
+#X obj 529 144 nbx 5 14 -1e+37 1e+37 0 0 mastervol mastervol mastervol
+0 -8 0 10 -261234 -1 -1 0 256;
+#X text 536 2 (c) GPL \, acre winfried ritsch;
+#X obj 246 647 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 246 503 list prepend send;
+#X obj 246 524 list trim;
+#X msg 331 347 listen 0;
+#X msg 244 347 listen 3301;
+#X text 246 332 on;
+#X obj 258 171 nbx 5 14 -1e+37 1e+37 0 0 /chan/2/vol /chan/2/vol /chan/2/vol
+0 -8 0 10 -204786 -1 -1 0 256;
+#X obj 259 140 nbx 5 14 -1e+37 1e+37 0 0 /chan/1/vol /chan/1/vol /chan/1/vol
+0 -8 0 10 -204786 -1 -1 0 256;
+#X obj 246 624 netsend -u;
+#X obj 244 67 rc/ctl CON1;
+#X obj 473 68 rc/ctl CON2;
+#X obj 21 65 rc/ctl;
+#X text 232 210 Activate parameter on remote connection CON1, f 31
+;
+#X text 476 206 Activate parameter on remote connection CON2, f 29
+;
+#X text 13 198 _DEFAULT_ connection is default off;
+#X msg 15 277 \; /rc/volume/on 1;
+#X msg 15 308 \; /rc/volume/on 0;
+#X obj 23 131 nbx 5 14 -1e+37 1e+37 0 0 volume volume volume 0 -8 0
+10 -261682 -1 -1 0 256;
+#X obj 23 419 rc/connection;
+#X obj 16 239 rc/register volume;
+#X obj 235 264 rc/register /chan/2/vol CON1;
+#X obj 473 252 rc/register mastervol CON2;
+#X obj 16 218 rc/register fadetime;
+#X obj 235 241 rc/register /chan/1/vol CON1;
+#X text 26 400 default remote connection;
+#X msg 561 327 listen 0;
+#X msg 477 329 listen 3301;
+#X text 472 297 listen to tcp;
+#X text 475 312 on;
+#X obj 483 362 netreceive 3301;
+#X obj 515 386 print tcp-rec;
+#X obj 502 456 list prepend send;
+#X obj 502 477 list trim;
+#X floatatom 590 363 5 0 0 0 - - -;
+#X text 567 313 off;
+#X text 339 328 off;
+#X text 573 474 wait for a receive to send back;
+#X obj 244 373 netreceive -u 0;
+#X obj 330 649 print udp-back;
+#X obj 244 418 mux 1;
+#X obj 286 417 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 21 358 5 0 0 0 - - -;
+#X msg 21 378 volume \$1;
+#X obj 246 478 rc/connection CON1;
+#X obj 501 432 rc/connection CON2;
+#X text 9 259 turn remote volume on/off;
+#X text 81 127 send;
+#X text 241 314 listen to udp optional;
+#X text 244 546 distribute to others via broadcast;
+#X text 302 418 use backchannel;
+#X text 6 512 Note: Since only one socket per host \, receives UDP
+we try to use broadcast for testing \, so we can open the example patch
+twice and couple these with CON1, f 38;
+#X text 6 581 Note: No backchannel on UDP !;
+#X obj 511 605 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 533 519 distribute to others via broadcast;
+#X obj 511 582 netsend;
+#X obj 595 607 print tcp-back;
+#X obj 509 506 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 532 506 use backchannel;
+#X obj 448 505 demux 1;
+#X text 623 365 connections;
+#X text 483 622 Note: On controller we use netsend \, on client we
+can use the backchannel if we want to send back from master., f 34
+;
+#X obj 23 440 print to-remote;
+#X text 11 457 Remote connections can use any uni- or bidirectional
+commuication channel \, pd provides, f 32;
+#X text 25 20 Examples to use remote control of parameter: default
+connection or a connection name can be chosen. To test here UDP and
+TCP is implemented using FUDI protocol.;
+#X text 472 42 For testing open on two Pd instances;
+#X text 58 354 from remote, f 16;
+#X obj 256 570 acre/ip_port CON1;
+#X obj 244 702 acre/ip_port_ctl CON1;
+#X obj 488 701 acre/ip_port_ctl CON2;
+#X obj 493 768 loadbang;
+#X msg 493 791 \; CON2/ip symbol 127.0.0.1 \; CON2/port 3301;
+#X obj 245 763 loadbang;
+#X obj 525 540 acre/ip_port CON2;
+#X obj 28 3 declare -path .. -lib zexy -path iemlib -lib iemlib;
+#X msg 245 786 \; CON1/ip 127.0.0.1 \; CON1/port 3301;
+#X msg 256 593 disconnect \, connect \$1 \$2;
+#X msg 525 562 disconnect \, connect \$1 \$2;
+#X connect 4 0 5 0;
+#X connect 5 0 11 0;
+#X connect 6 0 40 0;
+#X connect 7 0 40 0;
+#X connect 11 0 3 0;
+#X connect 11 1 41 0;
+#X connect 11 1 42 1;
+#X connect 21 0 64 0;
+#X connect 28 0 32 0;
+#X connect 29 0 32 0;
+#X connect 32 0 33 0;
+#X connect 32 0 47 0;
+#X connect 34 0 35 0;
+#X connect 35 0 61 0;
+#X connect 40 0 42 0;
+#X connect 42 0 46 0;
+#X connect 43 0 42 2;
+#X connect 44 0 45 0;
+#X connect 45 0 21 0;
+#X connect 46 0 4 0;
+#X connect 47 0 34 0;
+#X connect 57 0 55 0;
+#X connect 57 1 58 0;
+#X connect 57 1 47 0;
+#X connect 59 0 61 1;
+#X connect 61 0 57 0;
+#X connect 61 1 32 0;
+#X connect 69 0 78 0;
+#X connect 72 0 73 0;
+#X connect 74 0 77 0;
+#X connect 75 0 79 0;
+#X connect 78 0 11 0;
+#X connect 79 0 57 0;
