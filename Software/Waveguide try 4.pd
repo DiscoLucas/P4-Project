@@ -9,7 +9,7 @@
 #X obj 50 410 delwrite~ \$0-delay 1000;
 #X obj 100 360 output~;
 #X obj 50 110 hsl 128 15 0 440 0 0 empty empty Frequency -2 -8 0 10
-#fcfcfc #000000 #000000 5050 1;
+#fcfcfc #000000 #000000 0 1;
 #X obj 50 160 osc~;
 #X floatatom 60 130 5 0 0 0 - - -, f 5;
 #X obj 220 210 *~;
@@ -24,7 +24,7 @@
 #X floatatom 540 153 5 0 0 0 - - -, f 5;
 #X obj 510 180 delread~ \$0-delay;
 #X obj 540 213 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
-#000000 #000000 2850 1;
+#000000 #000000 2550 1;
 #X floatatom 560 243 5 0 0 0 - - -, f 5;
 #X connect 1 0 9 1;
 #X connect 1 0 13 0;
