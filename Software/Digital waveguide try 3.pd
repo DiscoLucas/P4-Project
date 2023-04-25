@@ -1,12 +1,12 @@
-#N canvas 697 53 542 408 12;
+#N canvas 276 109 542 438 12;
 #X obj 24 71 osc~ 440;
 #X obj 23 197 +~;
 #X obj 71 323 delwrite~ \$0-delay 1000;
 #X obj 146 137 *~;
 #X obj 169 69 delread~ \$0-delay;
-#X obj 174 1 hsl 162 19 0 127 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 229 -7 hsl 162 19 0 127 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X floatatom 201 28 5 0 0 0 - - - 0;
-#X obj 274 97 hsl 162 19 0 0.999 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 316 100 hsl 162 19 0 0.999 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X floatatom 232 132 5 0 0 0 - - - 0;
 #X obj 205 235 output~;
 #X obj 286 154 hsl 162 19 0 0.999 0 0 empty empty empty -2 -10 0 12 #fcfcfc #000000 #000000 0 1;
@@ -17,6 +17,7 @@
 #X connect 0 0 13 0;
 #X connect 1 0 2 0;
 #X connect 1 0 9 0;
+#X connect 1 0 9 1;
 #X connect 3 0 1 0;
 #X connect 4 0 3 0;
 #X connect 4 0 11 0;
@@ -27,3 +28,6 @@
 #X connect 10 0 11 1;
 #X connect 10 0 12 0;
 #X connect 11 0 13 0;
+#X connect 13 0 9 0;
+#X connect 13 0 1 0;
+#X connect 13 0 9 1;
