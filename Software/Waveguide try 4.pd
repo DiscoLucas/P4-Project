@@ -1,41 +1,76 @@
 #N canvas -8 -8 1366 680 10;
-#X obj 260 10 cnv 15 196 211 empty empty Nut 20 12 0 14 #00ffff #404040
+#X obj 330 10 cnv 15 196 211 empty empty Nut 20 12 0 14 #00ffff #404040
 0;
-#X obj 310 140 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
-#X obj 490 30 cnv 15 224 217 empty empty Bridge 20 12 0 14 #ff00ff
+#X obj 380 140 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
+#000000 #000000 300 1;
+#X obj 560 30 cnv 15 224 217 empty empty Bridge 20 12 0 14 #ff00ff
 #404040 0;
-#X obj 70 280 +~;
-#X obj 100 360 output~;
-#X obj 10 10 hsl 128 15 0 440 0 0 empty empty Frequency -2 -8 0 10
+#X obj 140 280 +~;
+#X obj 110 440 output~;
+#X obj 80 10 hsl 128 15 0 440 0 0 empty empty Frequency -2 -8 0 10
 #fcfcfc #000000 #000000 0 1;
-#X obj 10 60 osc~;
-#X floatatom 20 30 5 0 0 0 - - -, f 5;
-#X obj 140 170 *~;
-#X obj 310 50 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
+#X obj 80 60 osc~;
+#X floatatom 90 30 5 0 0 0 - - -, f 5;
+#X obj 210 170 *~;
+#X obj 380 50 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X floatatom 330 80 5 0 0 0 - - -, f 5;
-#X floatatom 310 163 5 0 0 0 - - -, f 5;
-#X obj 420 280 *~;
-#X obj 520 80 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
+#X floatatom 400 80 5 0 0 0 - - -, f 5;
+#X floatatom 380 163 5 0 0 0 - - -, f 5;
+#X obj 490 280 *~;
+#X obj 590 80 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X floatatom 570 110 5 0 0 0 - - -, f 5;
-#X obj 570 170 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
+#X floatatom 640 110 5 0 0 0 - - -, f 5;
+#X obj 640 170 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
+#000000 #000000 2550 1;
+#X floatatom 660 200 5 0 0 0 - - -, f 5;
+#X obj 60 490 delwrite~ \$0-idelay 1000;
+#X obj 380 110 delread~ \$0-idelay;
+#X obj 610 137 delread~ \$0-idelay;
+#X obj 230 230 delwrite~ \$0-nutdelay;
+#X obj 153 42 hsl 128 15 0 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X floatatom 590 200 5 0 0 0 - - -, f 5;
-#X obj 50 410 delwrite~ \$0-idelay 1000;
-#X obj 310 110 delread~ \$0-idelay;
-#X obj 540 137 delread~ \$0-idelay;
-#X obj 160 230 delwrite~ \$0-nutdelay;
-#X obj 83 42 hsl 128 15 0 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
+#X floatatom 163 62 5 0 0 0 - - -, f 5;
+#X obj 153 122 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X floatatom 93 62 5 0 0 0 - - -, f 5;
-#X obj 83 122 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#X floatatom 163 142 5 0 0 0 - - -, f 5;
+#X obj 131 190 *~;
+#X obj 153 92 delread~ \$0-nutdelay;
+#X obj 510 330 delwrite~ \$0-bridgedelay;
+#X obj -50 100 hsl 128 15 0 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
-#X floatatom 93 142 5 0 0 0 - - -, f 5;
-#X obj 61 190 *~;
-#X obj 83 92 delread~ \$0-nutdelay;
-#X obj 440 330 delwrite~ \$0-bridgedelay;
+#X floatatom -40 120 5 0 0 0 - - -, f 5;
+#X obj -50 180 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom -40 200 5 0 0 0 - - -, f 5;
+#X obj -70 250 *~;
+#X obj -50 150 delread~ \$0-bridgedelay;
+#X obj 912 12 cnv 15 179 195 empty empty Nut 20 12 0 14 #00ffff #404040
+0;
+#X obj 942 52 hsl 128 15 1.9 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 952 72 5 0 0 0 - - -, f 5;
+#X obj 862 252 *~;
+#X obj 945 164 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#000000 #000000 4200 1;
+#X floatatom 955 184 5 0 0 0 - - -, f 5;
+#X obj 942 102 delread~ \$0-bridgedelay;
+#X obj 440 460 +~;
+#X obj 1132 12 cnv 15 179 195 empty empty Bridge 20 12 0 14 #ff00ff
+#404040 0;
+#X obj 1152 52 hsl 128 15 1.9 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
+#000000 #000000 150 1;
+#X floatatom 1162 72 5 0 0 0 - - -, f 5;
+#X obj 1082 312 *~;
+#X obj 1152 162 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#000000 #000000 3900 1;
+#X floatatom 1162 182 5 0 0 0 - - -, f 5;
+#X obj 1152 102 delread~ \$0-nutdelay;
+#X obj 580 470 soundfiler Snare.wav;
+#X obj 580 440 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 580 500 readsf~;
+#X obj 580 530 +~;
+#X obj 580 570 output~;
 #X connect 1 0 8 1;
 #X connect 1 0 11 0;
 #X connect 3 0 4 0;
@@ -61,3 +96,27 @@
 #X connect 21 0 26 0;
 #X connect 23 0 24 0;
 #X connect 23 0 25 1;
+#X connect 28 0 29 0;
+#X connect 28 0 32 0;
+#X connect 28 0 33 0;
+#X connect 30 0 31 0;
+#X connect 30 0 32 1;
+#X connect 35 0 36 0;
+#X connect 35 0 40 0;
+#X connect 37 0 41 0;
+#X connect 38 0 39 0;
+#X connect 38 0 37 1;
+#X connect 40 0 37 0;
+#X connect 41 0 4 0;
+#X connect 41 0 4 1;
+#X connect 43 0 44 0;
+#X connect 43 0 48 0;
+#X connect 45 0 41 0;
+#X connect 46 0 47 0;
+#X connect 46 0 45 1;
+#X connect 48 0 45 0;
+#X connect 49 0 51 0;
+#X connect 50 0 49 0;
+#X connect 51 0 52 0;
+#X connect 52 0 53 0;
+#X connect 52 0 53 1;
