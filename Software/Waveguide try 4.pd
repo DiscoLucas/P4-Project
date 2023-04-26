@@ -8,7 +8,7 @@
 #X obj 140 280 +~;
 #X obj 110 440 output~;
 #X obj 80 10 hsl 128 15 0 440 0 0 empty empty Frequency -2 -8 0 10
-#fcfcfc #000000 #000000 0 1;
+#fcfcfc #000000 #000000 6450 1;
 #X obj 80 60 osc~;
 #X floatatom 90 30 5 0 0 0 - - -, f 5;
 #X obj 210 170 *~;
