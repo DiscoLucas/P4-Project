@@ -1,0 +1,26 @@
+#N canvas 913 328 450 300 10;
+#X text 25 44 m2fakt;
+#X obj 194 156 t b f;
+#X msg 194 177 1;
+#X obj 194 198 /;
+#X obj 80 167 * 0.122312;
+#X obj 194 94 loadbang;
+#X msg 194 114 0;
+#X obj 194 136 mtof;
+#X obj 80 110 inlet;
+#X obj 80 132 mtof;
+#X obj 80 191 outlet;
+#X text 224 200 more exact than number input;
+#X text 186 29 (c) GPL \, acre winfried ritsch;
+#X text 19 69 calculates a midinote offset to a faktor of transposition
+;
+#X connect 1 0 2 0;
+#X connect 1 1 3 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 1;
+#X connect 4 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;

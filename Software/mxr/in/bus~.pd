@@ -1,0 +1,18 @@
+#N canvas 922 242 336 314 10;
+#X obj 20 38 inlet~;
+#X obj 32 168 outlet~;
+#X obj 35 63 prvu~;
+#X text 34 -17 eq und hilo ... now in pickups;
+#X text 246 -20 (c)algorythmics \, winfried ritsch;
+#X text 38 -28 in/bus~ <bus name>;
+#X obj 31 127 mxr/fader/fader~ \$1;
+#X obj 35 84 s \$1/vu;
+#X obj 19 255 mxr/mo/prepost~ \$1;
+#X text 24 9 mxr/in/bus~ <ID>;
+#X text 85 53 (c) GPL \, acre - winfried ritsch;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 0 8 0;
+#X connect 2 0 7 0;
+#X connect 6 0 1 0;
+#X connect 6 0 8 1;

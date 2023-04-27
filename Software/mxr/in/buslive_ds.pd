@@ -1,0 +1,4 @@
+#N canvas 511 248 348 202 10;
+#X text 32 27 in/buslive_ds <domain> <bus id>;
+#X obj 35 56 mxr/fader/fader_ds \$1 \$2;
+#X obj 36 77 mxr/fader/fader_ds \$1 \$2/live;

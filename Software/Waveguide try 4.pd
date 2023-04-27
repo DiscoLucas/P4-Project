@@ -1,0 +1,96 @@
+#N canvas -8 -8 1366 680 10;
+#X obj 330 10 cnv 15 196 211 empty empty Nut 20 12 0 14 #00ffff #404040
+0;
+#X obj 380 140 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
+#000000 #000000 300 1;
+#X obj 560 30 cnv 15 224 217 empty empty Bridge 20 12 0 14 #ff00ff
+#404040 0;
+#X obj 140 280 +~;
+#X obj 110 440 output~;
+#X obj 80 10 hsl 128 15 0 440 0 0 empty empty Frequency -2 -8 0 10
+#fcfcfc #000000 #000000 6450 1;
+#X obj 80 60 osc~;
+#X floatatom 90 30 5 0 0 0 - - -, f 5;
+#X obj 210 170 *~;
+#X obj 380 50 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 400 80 5 0 0 0 - - -, f 5;
+#X floatatom 380 163 5 0 0 0 - - -, f 5;
+#X obj 490 280 *~;
+#X obj 590 80 hsl 128 15 0 1000 0 0 empty empty Delay -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 640 110 5 0 0 0 - - -, f 5;
+#X obj 640 170 hsl 128 15 0 0.999 0 0 empty empty Gain -2 -8 0 10 #fcfcfc
+#000000 #000000 2550 1;
+#X floatatom 660 200 5 0 0 0 - - -, f 5;
+#X obj 60 490 delwrite~ \$0-idelay 1000;
+#X obj 380 110 delread~ \$0-idelay;
+#X obj 610 137 delread~ \$0-idelay;
+#X obj 230 230 delwrite~ \$0-nutdelay;
+#X obj 510 330 delwrite~ \$0-bridgedelay;
+#X obj 912 12 cnv 15 179 195 empty empty Nut 20 12 0 14 #00ffff #404040
+0;
+#X obj 942 52 hsl 128 15 1.9 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 952 72 5 0 0 0 - - -, f 5;
+#X obj 862 252 *~;
+#X obj 945 164 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#000000 #000000 4200 1;
+#X floatatom 955 184 5 0 0 0 - - -, f 5;
+#X obj 942 102 delread~ \$0-bridgedelay;
+#X obj 440 460 +~;
+#X obj 1132 12 cnv 15 179 195 empty empty Bridge 20 12 0 14 #ff00ff
+#404040 0;
+#X obj 1152 52 hsl 128 15 1.9 1000 0 0 empty empty D -2 -8 0 10 #fcfcfc
+#000000 #000000 150 1;
+#X floatatom 1162 72 5 0 0 0 - - -, f 5;
+#X obj 1082 312 *~;
+#X obj 1152 162 hsl 128 15 0 0.999 0 0 empty empty a -2 -8 0 10 #fcfcfc
+#000000 #000000 3900 1;
+#X floatatom 1162 182 5 0 0 0 - - -, f 5;
+#X obj 1152 102 delread~ \$0-nutdelay;
+#X obj 580 470 soundfiler Snare.wav;
+#X obj 580 440 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 580 500 readsf~;
+#X obj 580 530 +~;
+#X obj 580 570 output~;
+#X connect 1 0 8 1;
+#X connect 1 0 11 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 3 0 17 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 3 0;
+#X connect 8 0 3 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 18 0;
+#X connect 12 0 3 0;
+#X connect 12 0 21 0;
+#X connect 13 0 14 0;
+#X connect 13 0 19 0;
+#X connect 15 0 16 0;
+#X connect 15 0 12 1;
+#X connect 18 0 8 0;
+#X connect 19 0 12 0;
+#X connect 23 0 24 0;
+#X connect 23 0 28 0;
+#X connect 25 0 29 0;
+#X connect 26 0 27 0;
+#X connect 26 0 25 1;
+#X connect 28 0 25 0;
+#X connect 29 0 4 0;
+#X connect 29 0 4 1;
+#X connect 31 0 32 0;
+#X connect 31 0 36 0;
+#X connect 33 0 29 0;
+#X connect 34 0 35 0;
+#X connect 34 0 33 1;
+#X connect 36 0 33 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 40 0 41 1;
