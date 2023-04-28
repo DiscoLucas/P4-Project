@@ -8,7 +8,7 @@
 #X obj 330 380 delwrite~ buffer1 500;
 #X obj 510 270 delread~ buffer1;
 #X floatatom 510 250 5 0 0 0 - - -, f 5;
-#N canvas 1231 145 525 427 input 1;
+#N canvas 1310 79 525 402 input 1;
 #X obj 202 62 t b b;
 #X obj 202 92 del 12;
 #X obj 202 162 tgl 18 0 empty empty empty 17 7 0 10 #fcfcfc #000000
