@@ -1,4 +1,4 @@
-#N canvas -8 -8 1920 992 10;
+#N canvas 0 0 1350 689 10;
 #X obj 616 227 cnv 15 110 121 empty empty empty 20 12 0 14 #ff8000
 #404040 0;
 #X obj 502 227 cnv 15 110 121 empty empty empty 20 12 0 14 #00ffff
@@ -8,25 +8,25 @@
 #X obj 330 380 delwrite~ buffer1 500;
 #X obj 510 270 delread~ buffer1;
 #X floatatom 510 250 5 0 0 0 - - -, f 5;
-#N canvas 1310 79 525 402 input 1;
+#N canvas 805 75 525 402 input 0;
 #X obj 202 62 t b b;
 #X obj 202 92 del 12;
 #X obj 202 162 tgl 18 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 150 160 noise~;
-#X obj 200 30 inlet~;
 #X obj 200 200 outlet~;
 #X msg 270 100 1;
 #X msg 200 120 0;
 #X text 50 90 gives a deley of 12 ms;
 #X text 250 150 creats atoggle for a noise burst;
+#X obj 200 30 inlet;
 #X connect 0 0 1 0;
-#X connect 0 1 6 0;
-#X connect 1 0 7 0;
-#X connect 2 0 5 0;
-#X connect 4 1 0 0;
+#X connect 0 1 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 4 0;
+#X connect 5 0 2 0;
 #X connect 6 0 2 0;
-#X connect 7 0 2 0;
+#X connect 9 0 0 0;
 #X restore 381 323 pd input;
 #X obj 381 230 bng 21 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
@@ -60,7 +60,7 @@
 #X obj 510 230 r MIDI;
 #X obj 620 230 r MIDI;
 #X obj 740 320 r MIDI;
-#N canvas 1317 555 450 300 combF1 1;
+#N canvas -32000 -32000 144 0 combF1 1;
 #X obj 202 132 *~, f 4;
 #X obj 223 92 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
 #000000 #000000 0 1;
