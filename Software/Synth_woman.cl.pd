@@ -1,8 +1,8 @@
-#N canvas 110 179 450 300 10;
+#N canvas 251 149 655 365 10;
 #X obj 242 28 inlet;
 #X obj 242 108 mtof;
 #X obj 242 318 outlet~;
-#N canvas 450 182 556 370 osclator 0;
+#N canvas 450 182 556 370 osclator 1;
 #X obj 200 217 phasor~;
 #N canvas 603 332 466 280 String 0;
 #X obj 174 70 t b b;
@@ -42,7 +42,7 @@
 #X text 130 57 Lowly modulate the frequency, f 27;
 #X obj 130 127 sig~;
 #X obj 130 157 +~;
-#N canvas 0 0 144 0 osclator 0;
+#N canvas 603 332 300 212 osclator 0;
 #X obj 60 40 inlet;
 #X obj 60 150 outlet~;
 #X obj 60 120 *~ 3;
@@ -64,8 +64,8 @@
 #X connect 10 0 2 0;
 #X restore 242 148 pd osclator paradise;
 #X obj 242 278 *~;
-#X obj 242 58 unpack i i;
-#N canvas -32000 -32000 144 0 attack_release_envelope 1;
+#X obj 100 80 unpack i i;
+#N canvas 647 105 533 383 attack_release_envelope 1;
 #X obj 120 110 sel 0;
 #X text 170 110 Is it a note on or off?;
 #X msg 70 160 0;
@@ -78,8 +78,8 @@
 #X obj 170 270 line~;
 #X obj 170 300 *~;
 #X obj 170 240 pack 0 2000;
-#X obj 120 75 inlet;
 #X obj 170 330 outlet~;
+#X obj 132 50 inlet~;
 #X connect 0 0 2 0;
 #X connect 0 1 4 0;
 #X connect 2 0 11 0;
@@ -89,14 +89,12 @@
 #X connect 7 0 11 1;
 #X connect 9 0 10 0;
 #X connect 9 0 10 1;
-#X connect 10 0 13 0;
+#X connect 10 0 12 0;
 #X connect 11 0 9 0;
-#X connect 12 0 0 0;
 #X restore 462 118 pd attack_release_envelope;
-#X connect 0 0 5 0;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
 #X connect 1 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 2 0;
-#X connect 5 0 1 0;
-#X connect 5 1 6 0;
 #X connect 6 0 4 1;
