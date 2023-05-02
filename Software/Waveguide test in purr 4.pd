@@ -158,6 +158,11 @@
 #X obj 791 582 bp~;
 #X floatatom 851 552 5 0 0 0 - - -, f 5;
 #X floatatom 911 562 5 0 0 0 - - -, f 5;
+#X obj 910 530 r ll;
+#X obj 850 510 r rr;
+#X floatatom 40 100 5 0 0 0 - - -, f 5;
+#X obj 40 124 s DD;
+#X obj 900 590 r DD;
 #X connect 13 0 19 0;
 #X connect 14 0 13 0;
 #X connect 15 0 31 1;
@@ -263,3 +268,7 @@
 #X connect 120 0 118 0;
 #X connect 121 0 120 1;
 #X connect 122 0 120 2;
+#X connect 123 0 122 0;
+#X connect 124 0 121 0;
+#X connect 125 0 126 0;
+#X connect 127 0 119 0;
