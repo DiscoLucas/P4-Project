@@ -22,7 +22,7 @@
 #X obj 850 370 delwrite~ buffer2 500;
 #X floatatom 850 330 5 0 0 0 - - -, f 5;
 #X obj 660 370 output~;
-#X floatatom 250 230 5 0 0 0 - - -, f 5;
+#X floatatom 250 230 5 43 60 0 - - -, f 5;
 #X obj 250 250 mtof;
 #X obj 250 270 expr 1000/ $f1;
 #X obj 250 290 s MIDI;
