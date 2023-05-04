@@ -19,21 +19,21 @@
 #404040 0;
 #X obj 88 89 cnv 15 110 98 empty empty empty 20 12 0 14 #0080ff #404040
 0;
-#X obj 230 760 delwrite~ buffer1 500;
+#X obj 250 770 delwrite~ buffer1 500;
 #X obj 130 630 delread~ buffer1;
 #X floatatom 130 610 5 0 0 0 - - -, f 5;
-#N canvas 1065 263 443 340 input 0;
-#X obj 202 62 t b b;
-#X obj 202 92 del 12;
-#X obj 202 162 tgl 18 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#N canvas 300 100 1219 749 input 0;
+#X obj 200 100 t b b;
+#X obj 200 120 del 12;
+#X obj 200 170 tgl 18 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
-#X obj 150 160 noise~;
-#X obj 200 200 outlet~;
-#X msg 200 120 0;
-#X text 50 90 gives a deley of 12 ms;
-#X text 250 150 creats atoggle for a noise burst;
-#X msg 270 100 1;
-#X obj 200 30 inlet;
+#X obj 730 240 noise~;
+#X obj 200 190 outlet~;
+#X msg 200 140 0;
+#X text 540 260 gives a deley of 12 ms;
+#X text 740 320 creats atoggle for a noise burst;
+#X msg 270 140 1;
+#X obj 200 80 inlet;
 #X connect 0 0 1 0;
 #X connect 0 1 8 0;
 #X connect 1 0 5 0;
@@ -41,8 +41,8 @@
 #X connect 5 0 2 0;
 #X connect 8 0 2 0;
 #X connect 9 0 0 0;
-#X restore 730 210 pd input;
-#X obj 730 110 bng 56 250 50 0 empty empty empty 17 7 0 10 #ffffff
+#X restore 480 -40 pd input;
+#X obj 480 -100 bng 56 250 50 0 empty empty empty 17 7 0 10 #ffffff
 #000000 #000000;
 #X obj 130 690 lop~;
 #X floatatom 182 670 5 0 0 0 - - -, f 5;
@@ -84,7 +84,7 @@
 #X text 300 90 Takes a MIDI input and converts to delay;
 #X text 300 180 Controlls the left and right lowpassfilter, f 22;
 #X text 300 220 A bang to pluck the string;
-#X obj 420 740 delwrite~ Bridge 500;
+#X obj 420 760 delwrite~ Bridge 500;
 #X obj 610 396 delread~ Bridge;
 #X obj 610 417 *~ -1;
 #X floatatom 570 480 5 0 0 0 - - -, f 5;
@@ -93,11 +93,11 @@
 #X obj 570 460 r DD;
 #X text 300 150 Controlls the Nut Delay;
 #X text 300 120 Controlls the Bridge Delay;
-#X obj 214 163 tgl 65 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#X obj 216 167 tgl 65 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X floatatom 320 480 5 0 0 0 - - -, f 5;
 #X obj 320 460 r DD;
-#X obj 260 740 delwrite~ buffer2 500;
+#X obj 260 750 delwrite~ buffer2 500;
 #X obj 560 575 cnv 15 147 181 empty empty empty 20 12 0 14 #ff00ff
 #404040 0;
 #X floatatom 570 602 5 0 0 0 - - -, f 5;
@@ -114,8 +114,8 @@
 #X obj 762 640 delread~ buffer4;
 #X obj 622 663 r ll;
 #X obj 814 660 r rr;
-#X obj 670 210 noise~;
-#X obj 710 250 *~;
+#X obj 430 -40 noise~;
+#X obj 460 -10 *~;
 #X floatatom 762 590 5 0 0 0 - - -, f 5;
 #X obj 762 570 r MIDI;
 #X text 580 326 Bridge;
@@ -261,7 +261,6 @@
 #X connect 115 0 116 0;
 #X connect 115 1 119 0;
 #X connect 116 0 117 0;
-#X connect 117 0 61 0;
 #X connect 118 0 111 0;
 #X connect 119 0 120 0;
 #X connect 121 0 129 0;
