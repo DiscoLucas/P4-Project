@@ -1,0 +1,249 @@
+﻿DRIVER
+  os.environ['SMA_TSO_COSMOS_ELEMAT'] = '1'
+  driver.registerSaveRule( UpdateRules.COPY, CheckPoints.ITER_COMPLETE, EventTimes.LAST, [ '*.ste*' ], 'SAVE.ste', '' )
+  driver.registerSaveRule( UpdateRules.COPY, CheckPoints.ITER_COMPLETE, EventTimes.LAST, [ '*.lcd*' ], 'SAVE.ste', '' )
+  driver.registerSaveRule( UpdateRules.COPY, CheckPoints.ITER_COMPLETE, EventTimes.LAST, [ '*.lcm*' ], 'SAVE.ste', '' )
+END_
+
+FEM_INPUT
+  ID_NAME = Baryton_Assembly-Upper_body_study_1
+  FILE = Baryton Assembly-Upper body study.NOD
+END_
+
+*SET_DB,rint,130,1
+
+GROUP_DEF
+  ID_NAME = FROZEN_AREA_ELEMS_GRP_1
+  TYPE=ELEM
+  FORMAT=LIST
+  LIST_BEGIN
+303,699,1065,1456,1466,1467,1813,2262,3204,3841,3850,4054,4654,4662,4886,4893,4905,4962,5028,
+5055,5058,5066,5073,5074,5554,5986,6280,6304,6912,7695,7727,7739,7741,7822,9838,10056,10942,
+11343,11550,11556,11949,11954,11960,11962,12048,12490,12491,13362,13754,14043,17078,18569,
+18965,18966,19202,19206,19667
+END_
+
+GROUP_DEF
+  ID_NAME = FROZEN_AREA_ELEMS_GRP_2
+  TYPE=ELEM
+  FORMAT=LIST
+  LIST_BEGIN
+339,748,808,810,811,1059,1127,1838,1867,1875,1877,2278,2279,2280,2304,2309,2835,2837,2838,
+2873,3249,3254,3474,3626,3682,4126,4260,4288,4332,4712,4811,4984,6113,6115,6130,6134,6138,
+6317,6586,6786,6791,6801,6805,6947,6991,6999,7200,7211,7406,7486,7489,7517,7641,7673,7701,
+7908,8506,8509,8519,8533,8544,9040,9051,9056,9420,9567,9594,9596,9608,9620,9650,9653,10115,
+10468,10483,10869,10896,11009,11012,11015,11035,11418,11488,11523,12066,12228,12634,12650,
+12754,12815,12817,12827,12835,12845,13131,13478,13491,13593,13595,13615,13619,13622,13806,
+14111,14114,14123,14125,14199,14756,14772,14999,15000,15001,15292,15367,15825,15839,16009,
+16047,16051,16053,16054,16057,16271,16275,16533,16917,17228,17245,17561,17572,17633,18009,
+18102,18119,18275,18316,18574,18618,18640,18755,18926,19382,19453,19971,20228
+END_
+
+GROUP_DEF
+  ID_NAME = FROZEN_AREA_ELEMS_GRP_3
+  TYPE=ELEM
+  FORMAT=LIST
+  LIST_BEGIN
+68,71,362,364,991,1073,1304,1438,1605,1609,1621,1622,1788,1799,2054,2056,2058,2063,2068,2078,
+2540,2548,3001,3130,3168,3169,3172,3365,3376,3378,3381,3382,3603,4181,4447,4459,4559,4594,
+4597,5132,5142,5211,5336,5503,5544,5627,5690,6084,6443,6451,6461,6584,6685,6714,6720,6727,
+6737,6744,7304,7779,7860,7880,7883,7968,8986,8987,8994,9003,9009,9021,9022,9175,9536,9639,
+9668,9669,9702,9877,9887,9908,9937,10086,10147,10295,10490,10540,10572,10690,10713,10780,10785,
+10787,10834,10835,10849,11214,11659,12234,12312,12402,12404,12406,12423,13049,13337,13342,
+13717,13723,13732,13743,13995,14079,14290,14292,14310,14311,14313,14319,14652,14658,14716,
+14929,14940,15468,15793,15975,16372,16391,16404,16781,16860,17130,17293,17446,18077,18086,
+18890,18976,19057,19285,19464,19761,20323
+END_
+
+! ----------------------------------------------------------------
+!
+! Design Response: Stiffness_Measure
+!
+DRESP
+  ID_NAME = Stiffness_Measure
+  LIST = NO_LIST
+  DEF_TYPE = SYSTEM
+  EL_GROUP = ALL_ELEMENTS
+  TYPE = ENERGY_STIFF_MEASURE
+  GROUP_OPER = SUM
+  LC_SEL = SUM 
+  LC_SET = STATIC, ALL, ALL, MAX
+END_
+
+! ----------------------------------------------------------------
+!
+! Design Response: Mass_DResp_1
+!
+DRESP
+  ID_NAME = Mass_DResp_1
+  LIST = NO_LIST
+  DEF_TYPE = SYSTEM
+  EL_GROUP = ALL_ELEMENTS
+  TYPE = WEIGHT
+  GROUP_OPER = SUM
+END_
+
+! ----------------------------------------------------------------
+!
+! Design Response: Stress_DResp_1
+!
+DRESP
+  ID_NAME = Stress_DResp_1
+  LIST = NO_LIST
+  DEF_TYPE = SYSTEM
+  EL_GROUP = ALL_ELEMENTS
+  TYPE = SIG_TOPO_MISES
+  GROUP_OPER = MAX
+  LC_SET = STATIC, 1, ALL, MAX
+END_
+
+! ----------------------------------------------------------------
+!
+!
+! Design Area: Task1_DESIGN_AREA
+!
+DV_TOPO
+  ID_NAME = Task1_DESIGN_AREA
+  EL_GROUP = ALL_ELEMENTS
+END_
+
+! ----------------------------------------------------------------
+!
+! Objective Function: StiffnessEnergy_Obj_Func
+!
+OBJ_FUNC
+  ID_NAME = StiffnessEnergy_Obj_Func
+  DRESP = Stiffness_Measure, 1.0
+  TARGET = MIN
+END_
+
+! ----------------------------------------------------------------
+!
+! Constraint: Mass_Constraint_1
+!
+CONSTRAINT
+  ID_NAME = Mass_Constraint_1
+  DRESP = Mass_DResp_1
+  MAGNITUDE = REL
+  LE_VALUE = 0.5
+END_
+
+! ----------------------------------------------------------------
+!
+! Constraint: Stress_Constraint_2
+!
+CONSTRAINT
+  ID_NAME = Stress_Constraint_2
+  DRESP = Stress_DResp_1
+  MAGNITUDE = ABS
+  LE_VALUE = 5.6e+07
+END_
+
+! ----------------------------------------------------------------
+!
+! CS_DEF: Datum_CSys_4
+!
+CS_DEF
+  ID_NAME = Datum_CSys_4
+  CS_TYPE = RECTANGULAR
+  DEF_TYPE = LOCAL
+  CS_REF = CS_0
+  ORIGIN_123 = -0.075297, -0.000000, 0.000000
+  ROTATION_321 = 0.000000, 90.000000, 0.000000
+END_
+
+! ----------------------------------------------------------------
+!
+! Geometric Restriction: Symm_ManufacConstraint_3-1
+!
+LINK_TOPO
+  ID_NAME = Symm_ManufacConstraint_3-1_LINK_
+  TYPE = PLANE_SYM, AXIS_3
+  CS = Datum_CSys_4 
+  IGNORE_FROZEN = FALSE
+END_
+
+DVCON_TOPO
+  ID_NAME = Symm_ManufacConstraint_3-1
+  EL_GROUP = ALL_ELEMENTS
+  CHECK_TYPE = LINK_TOPO
+  CHECK_LINK = Symm_ManufacConstraint_3-1_LINK_
+END_
+
+! ----------------------------------------------------------------
+!
+! Geometric Restriction: Frozen_ManufacConstraint_5
+!
+DVCON_TOPO
+  ID_NAME = Frozen_ManufacConstraint_5
+  EL_GROUP = FROZEN_AREA_ELEMS_GRP_1
+  CHECK_TYPE = FROZEN
+END_
+
+! ----------------------------------------------------------------
+!
+! Geometric Restriction: Frozen_ManufacConstraint_6
+!
+DVCON_TOPO
+  ID_NAME = Frozen_ManufacConstraint_6
+  EL_GROUP = FROZEN_AREA_ELEMS_GRP_2
+  CHECK_TYPE = FROZEN
+END_
+
+! ----------------------------------------------------------------
+!
+! Geometric Restriction: Thickness_ManufacConstraint_7
+!
+DVCON_TOPO
+  ID_NAME = Thickness_ManufacConstraint_7
+  EL_GROUP = ALL_ELEMENTS
+  CHECK_TYPE = MIN_MEMBER
+  THICKNESS = 0.00402856
+END_
+
+! ----------------------------------------------------------------
+!
+! Geometric Restriction: Frozen_ManufacConstraint_8
+!
+DVCON_TOPO
+  ID_NAME = Frozen_ManufacConstraint_8
+  EL_GROUP = FROZEN_AREA_ELEMS_GRP_3
+  CHECK_TYPE = FROZEN
+END_
+
+! ----------------------------------------------------------------
+!
+!
+! Optimize: OPTIMIZE_1_TOPOLOGY_OPTIMIZATION_CONTROLLER 
+!
+OPTIMIZE
+  ID_NAME = OPTIMIZE_1_TOPOLOGY_OPTIMIZATION_SENSITIVITY
+  DV = Task1_DESIGN_AREA
+  OBJ_FUNC = StiffnessEnergy_Obj_Func
+  DVCON = Symm_ManufacConstraint_3-1
+  DVCON = Frozen_ManufacConstraint_5
+  DVCON = Frozen_ManufacConstraint_6
+  DVCON = Thickness_ManufacConstraint_7
+  DVCON = Frozen_ManufacConstraint_8
+  CONSTRAINT = Mass_Constraint_1
+  CONSTRAINT = Stress_Constraint_2
+  STRATEGY = TOPO_SENSITIVITY
+END_
+
+OPT_PARAM
+  ID_NAME = OPTIMIZE_1_TOPOLOGY_OPTIMIZATION_SENSITIVITY_OPT_PARAM_
+  OPTIMIZE = OPTIMIZE_1_TOPOLOGY_OPTIMIZATION_SENSITIVITY
+  DV_UPDATE_STRATEGY = CSA
+  STABILIZATION = YES
+  AUTO_FROZEN = BOTH
+  AUTO_FROZEN_CON = BOTH
+  STOP_CRITERION_LEVEL = BOTH
+  STOP_CRITERION_OBJ = 0.001
+  STOP_CRITERION_DENSITY = 0.005
+END_
+
+STOP
+  ID_NAME = Task-1_GLOBAL_STOP_CONDITION_
+  ITER_MAX = 80
+END_
+

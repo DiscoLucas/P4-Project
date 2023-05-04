@@ -103,8 +103,10 @@ END_
 DVCON_TOPO
   ID_NAME = Thickness_ManufacConstraint_3
   EL_GROUP = ALL_ELEMENTS
-  CHECK_TYPE = MIN_MEMBER
-  THICKNESS = 0.00400339
+  CHECK_TYPE = MAX_MEMBER
+  THICKNESS = 0.0150918
+  MIN_THICKNESS = 0.00400339
+  DISTANCE = 0.
 END_
 
 ! ----------------------------------------------------------------
