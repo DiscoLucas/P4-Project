@@ -1,4 +1,4 @@
-#N canvas -8 -8 1366 680 10;
+#N canvas 439 188 1366 680 10;
 #X obj 153 316 cnv 15 58 75 empty empty empty 20 12 0 14 #00ffff #404040
 0;
 #X obj 420 308 cnv 15 136 30 empty empty empty 20 12 0 14 #ff8000 #404040
@@ -94,7 +94,7 @@
 #X text 420 278 Controlls the Nut Delay;
 #X text 420 248 Controlls the Bridge Delay;
 #X obj 338 298 tgl 65 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000 1 1;
+#000000 0 1;
 #X floatatom 440 608 5 0 0 0 - - -, f 5;
 #X obj 440 588 r DD;
 #X obj 380 878 delwrite~ buffer2 500;
@@ -175,21 +175,21 @@
 #X obj 420 68 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
 #X text 420 348 A toggle to exite the string;
-#X obj 50 490 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
-#X floatatom 50 510 5 0 0 0 - - -, f 5;
-#X obj 200 442 noise~;
-#X text 50 470 Presure = Noise Amp;
-#X text 80 600 Veloc = filter cut off \, slower = lower;
-#X obj 80 620 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 1;
-#X floatatom 80 640 5 0 0 0 - - -, f 5;
-#X obj 210 512 *~;
-#X obj 280 450 phasor~ 10;
-#X floatatom 270 410 5 0 0 0 - - -, f 5;
-#X obj 220 550 lop~ 600;
-#X floatatom 300 520 5 0 0 0 - - -, f 5;
-#X obj 250 492 *~ 0.2;
+#X obj 170 420 hsl 128 15 0 0.99 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 8300 1;
+#X floatatom 170 440 5 0 0 0 - - -, f 5;
+#X obj 20 530 noise~;
+#X text 170 400 Presure = Noise Amp;
+#X text 87 510 Veloc = filter cut off \, slower = lower;
+#X obj 87 530 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 8600 1;
+#X obj 60 550 *~;
+#X obj 75 470 phasor~ 10;
+#X floatatom 75 450 5 0 0 0 - - -, f 5;
+#X floatatom 87 550 5 0 0 0 - - -, f 5;
+#X obj 60 570 lop~;
+#X obj 75 490 *~;
+#X msg 75 424 2;
 #X connect 12 0 88 0;
 #X connect 13 0 12 0;
 #X connect 14 0 79 1;
@@ -293,11 +293,13 @@
 #X connect 133 0 130 0;
 #X connect 134 0 131 0;
 #X connect 136 0 137 0;
-#X connect 138 0 143 0;
-#X connect 141 0 142 0;
-#X connect 143 0 146 0;
-#X connect 144 0 148 0;
-#X connect 145 0 144 0;
+#X connect 137 0 147 1;
+#X connect 138 0 142 0;
+#X connect 141 0 145 0;
+#X connect 142 0 146 0;
+#X connect 143 0 147 0;
+#X connect 144 0 143 0;
+#X connect 145 0 146 1;
 #X connect 146 0 22 0;
-#X connect 147 0 146 1;
-#X connect 148 0 143 1;
+#X connect 147 0 142 1;
+#X connect 148 0 144 0;
