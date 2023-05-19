@@ -45,18 +45,19 @@ Grøn:= Ergonomic
 9. Shape and size remided of bass, 
 10. Shape and size remined of guirat, felt confortable and natural to hold betwwen the lges, a bit wired when trying a few of the notes
 11. Though the pink areas were more inportant, size reminded of guirat, felt fine between the legs, but got a bit of back pain because it was a little too small.
+
 Tyrkis:= Audio
-1. Kom nogen gange lidt ud af de blå
-2. Ingen kommentarer
-3. Meget fed lyd.
-4. Lyder meget som et strenginstrument, men digitalt.
-5. Lidt spacy og anderledes. Det var ret fedt.
-6. Rigtig gammeldags. Virker realistisk på nær at lyden looper. Naturlig.
+1. Kom nogen gange lidt ud af de blå MS
+2. Ingen kommentarer MN
+3. Meget fed lyd. MN
+4. Lyder meget som et strenginstrument, men digitalt. MN
+5. Lidt spacy og anderledes. Det var ret fedt. S
+6. Rigtig gammeldags. Virker realistisk på nær at lyden looper. Naturlig. MN
 7. Spøgelse
-8. Lyder ikke forkert, men ikke en lyd de havde regnet med
-9. Kunne godt høre forskel på lyde
-10. Minder om en rigtig cello. Næsten som om det var prerecorded.
-11. Var naturligt, savner forskellige noter.
+8. Lyder ikke forkert, men ikke en lyd de havde regnet med MS
+9. Kunne godt høre forskel på lyde MN
+10. Minder om en rigtig cello. Næsten som om det var prerecorded. N
+11. Var naturligt, savner forskellige noter. N
 
 Rød:= sammenligning med andre instrumenter
 1. Helt klart sammenlignes med strengeinstrument.
@@ -72,7 +73,7 @@ Rød:= sammenligning med andre instrumenter
 11. 90% Cello
 
 Oliven grøn := Hvor let at lære?
-1. Står der ikke noget om
+1. Ja
 2. Prototype er svær, men final version vil være mærkant nemmere. Sammenligner med et klaver.
 3. Ja. 
 4. Ja. 
