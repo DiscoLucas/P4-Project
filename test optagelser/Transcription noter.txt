@@ -22,6 +22,8 @@ Blå:= Interaktion
 10. Flet resopnsive, a little wire on where the strings are
 11. Low and high end felt responsive but the midder strings were a bit wired, A few times on the fretbored when more than one string was pressed donw it felt unresponsive
 
+30% kunne ikke finde forskelige strænge
+
 Orange:= Physical feedback
 1. Felt the grooves on the bridge, nothing on the fretbored
 2. Flet the grooves, vissualies the fretbored

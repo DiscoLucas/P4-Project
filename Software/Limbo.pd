@@ -1,4 +1,4 @@
-#N canvas -8 -8 1366 680 10;
+#N canvas 269 148 1366 680 10;
 #X obj 69 0 r presure;
 #N canvas 727 338 450 300 phaser 0;
 #X obj 241 232 *~;
@@ -30,7 +30,7 @@
 #X obj 130 0 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
 0 1;
 #X obj 149 0 r presure;
-#N canvas 725 336 453 302 phaser 0;
+#N canvas 1432 350 453 327 phaser 1;
 #X obj 241 232 *~;
 #X floatatom 241 102 5 0 0 0 - - -, f 5;
 #X obj 141 152 noise~;
@@ -140,17 +140,17 @@
 #404040 0;
 #X obj 66 447 cnv 15 110 121 empty empty empty 20 12 0 14 #00ffff #404040
 0;
-#X obj 222 -7 cnv 15 110 98 empty empty empty 20 12 0 14 #0080ff #404040
-0;
+#X obj 219 -12 cnv 15 116 104 empty empty empty 20 12 0 14 #0080ff
+#404040 0;
 #X floatatom 74 470 5 0 0 0 - - -, f 5;
 #X obj 74 550 lop~;
 #X floatatom 126 530 5 0 0 0 - - -, f 5;
 #X floatatom 294 470 5 0 0 0 - - -, f 5;
 #X obj 294 550 lop~;
 #X floatatom 346 530 5 0 0 0 - - -, f 5;
-#X floatatom 232 10 5 0 0 0 - - -, f 5;
-#X obj 232 30 mtof;
-#X obj 232 50 expr 1000/ $f1;
+#X floatatom 230 11 5 0 0 0 - - -, f 5;
+#X obj 230 31 mtof;
+#X obj 230 51 expr 1000/ $f1;
 #X obj 294 220 cnv 15 135 168 empty empty empty 20 12 0 14 #ff0000
 #404040 0;
 #X obj 305 303 *~ -1;
@@ -207,17 +207,17 @@
 #X obj 706 540 *~ 0.49;
 #X obj 514 482 + 0.5;
 #X obj 706 470 + 0.5;
-#X obj 264 -34 loadbang;
+#X obj 230 -50 loadbang;
 #X msg 174 14 10;
 #X msg 284 96 0.3;
 #X msg 226 96 1.6;
 #X text 434 124 A toggle to exite the string;
 #X obj 730 280 outlet~;
 #X obj 820 290 outlet~;
-#X obj 150 -30 inlet;
+#X obj 230 -10 inlet;
 #X obj 100 -30 inlet~;
 #X obj 554 324 lop~ 3500;
-#X obj 230 70 s MIDI_1;
+#X obj 230 71 s MIDI_1;
 #X obj 294 450 r MIDI_1;
 #X obj 74 450 r MIDI_1;
 #X obj 514 442 r MIDI_1;
@@ -287,8 +287,6 @@
 #X connect 70 0 100 0;
 #X connect 71 0 72 0;
 #X connect 71 0 102 0;
-#X connect 71 0 74 0;
-#X connect 71 0 73 0;
 #X connect 71 0 103 0;
 #X connect 72 0 42 0;
 #X connect 73 0 26 0;
@@ -313,7 +311,7 @@
 #X connect 102 0 31 0;
 #X connect 103 0 32 0;
 #X restore 70 150 pd sting1;
-#N canvas 752 184 1099 709 sting2 0;
+#N canvas 752 184 1099 709 sting2 1;
 #X obj 167 92 cnv 15 58 75 empty empty empty 20 12 0 14 #00ffff #404040
 0;
 #X obj 434 84 cnv 15 136 30 empty empty empty 20 12 0 14 #ff8000 #404040
@@ -1137,10 +1135,11 @@
 #X obj 950 190 select 0 1;
 #X obj 820 240 print This is zero;
 #X obj 970 230 print This is one;
+#X msg 190 100 69;
+#X msg 150 20 2;
 #X connect 0 0 1 0;
 #X connect 1 0 12 0;
 #X connect 2 0 1 1;
-#X connect 3 0 4 0;
 #X connect 4 0 13 0;
 #X connect 5 0 4 1;
 #X connect 6 0 7 0;
@@ -1149,12 +1148,12 @@
 #X connect 9 0 10 0;
 #X connect 10 0 15 0;
 #X connect 11 0 10 1;
+#X connect 13 0 22 0;
+#X connect 13 1 22 1;
 #X connect 16 0 19 1;
 #X connect 17 0 16 0;
 #X connect 18 0 19 0;
 #X connect 19 0 20 0;
-#X connect 20 0 22 0;
-#X connect 20 1 22 1;
 #X connect 21 0 20 1;
 #X connect 23 0 24 0;
 #X connect 24 0 25 0;
@@ -1176,3 +1175,5 @@
 #X connect 40 0 42 0;
 #X connect 42 0 43 0;
 #X connect 42 1 44 0;
+#X connect 45 0 13 1;
+#X connect 46 0 4 0;
