@@ -1,0 +1,2 @@
+type instrument
+midiin true
